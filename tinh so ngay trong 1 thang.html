@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="number" id="monthnumber" onchange="change()">
+        <input type="button" onclick="myclick ()" value="Tính số ngày">
+        <p style="color: red;">Kết quả:<span  id="ketqua"></span></p>
+    </form>
+    <script>
+        function change() {
+            let month =parseInt( document.getElementById("monthnumber").value);
+            // console.log(typeof (month));
+            return(month);
+        }  
+        function myclick() {
+            let month = change(); 
+            let result;
+            switch (month) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                result=(("Tháng") + month +("có 31 ngày"));
+                    break;
+                case 2:
+                result=(("Tháng") + month +("có 29 ngày"));
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                result=(("Tháng") + month +("có 30 ngày"));
+                    break;
+                    default :
+                    result = ("Tháng") + month + ("không hợp lệ");
+            }
+            document.getElementById('ketqua').innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>
